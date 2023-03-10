@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="https://em-content.zobj.net/thumbs/120/microsoft/319/test-tube_1f9ea.png">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet"> 
+        <title>Calculate Total GPA</title>
+        <script src="main.js"></script>
+    </head>
+    <body>
+        <div class="titleSection"><h1>Mark Calculator</h1></div>
+        <div class="bodySection">
+            <p class="instructionP">Instructions go here...</p>
+            <form action="" id="totalGPAForm">
+                <div class="inputGrid" id="TotalGpaGrid">
+                    <div class="inputGridItem">
+                        <p class="inputGridP inputGridHeader">Course Name</p>
+                    </div>
+                    <div class="inputGridItem">
+                        <p class="inputGridP inputGridHeader">Weighting/Credits</p>
+                    </div>
+                    <div class="inputGridItem">
+                        <p class="inputGridP inputGridHeader">Current Mark (%)</p>
+                    </div>
+        
+                </div>
+            </form>
+            <button type="button" id="addGPACalcButton" class="actionButton" >Add Row</button>
+            <button type="button" id="removeGPACalcButton" class="actionButton" >Remove Row</button>
+            <button type="button" id="totalGPACalcButton" class="submitButton" >Calculate Total GPA</button>
+            <div class="outputArea" id="totalGPAOutputAra">
+                <p>Total Mark: <span id="outputSpan"></span></p>
+                <p>Total GPA: <span id="outputGPASpan"></span></p>
+            </div>
+        </div>
+    </body>
+    <!--
+                    <div class="inputGridItem">
+                <input type="text" class="inputGridTextField courseNameTextField" name="courseName">
+            </div>
+    -->
+</html>

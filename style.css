@@ -1,0 +1,28 @@
+/*
+    font-family: 'Gloock', serif;
+
+    font-family: 'Roboto', sans-serif;
+*/
+
+:root {
+    font-family: 'Roboto', sans-serif;
+    --blue: #4D9DE0;
+    --red: #E15554;
+    --yellow: #E1BC29;
+    --green: #3BB273;
+    --purple: #7768AE;
+    --battleship: #808F87;
+    --background: #F5F5F5;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    --colNum: 3;
+}
+
+.inputGrid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+}
