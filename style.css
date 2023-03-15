@@ -21,8 +21,25 @@
     --colNum: 3;
 }
 
+html {
+    padding: 0; margin: 0;
+}
+
 .inputGrid {
     display: grid;
     gap: 20px;
     grid-template-columns: 1fr 1fr 1fr;
+}
+
+.popup {
+    position: absolute;
+    background-color: white;
+    display:none;
+    gap: 5px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    padding: 9rem;
 }

@@ -15,7 +15,7 @@ function setAttributes(element, attributesDict) {
 //
 // Format would be div.{elRowClasses}Item, input.{elRowClasses}TextField.{
 // elColClasses}TextField->name{elColClasses}{numberCounter}
-function insertRow(gridEl,colNum, elRowClasses, elColClasses) {
+function insertRow(gridEl,colNum, elRowClasses, elColClasses, defaultFirst = true) {
     let textField;
     let textFieldDiv;
     let returnVals = [];
@@ -25,7 +25,9 @@ function insertRow(gridEl,colNum, elRowClasses, elColClasses) {
         textField.className += `${elRowClasses}TextField`;
         textField.className += ` ${elColClasses[i % 3]}TextField`;
         textField.name = `${elColClasses[i % 3]}${i}`;
-
+        if (i == 0 && defaultFirst) {
+            textField.value = "Default";
+        }
         textFieldDiv = document.createElement("div");
         textFieldDiv.className += `${elRowClasses}Item`;
         textFieldDiv.appendChild(textField);
@@ -70,10 +72,17 @@ window.onload = function() {
                 }
             }
             console.log(`${undividedGPA} : ${totalWeight}`);
-            document.getElementById("outputSpan").innerHTML = (undividedGPA / totalWeight).toFixed(2).toString();
-            document.getElementById("outputGPASpan").innerHTML = (undividedGPA / totalWeight / 25).toFixed(2).toString();
+            document.getElementById("outputSpan").innerHTML = (undividedGPA / totalWeight).toFixed(2).toString() + "%";
 
-            
+            let twelvePointCutoffs = [50,53,57,60,63,67,70,73,77,80,85,90]; let twelveCounter = 0;
+            for (let j = 0; j < twelvePointCutoffs.length; j ++) {
+                if ((undividedGPA / totalWeight) > twelvePointCutoffs[j]) {
+                    twelveCounter ++;
+                } else {
+                    break;
+                }
+            }
+            document.getElementById("outputGPASpan").innerHTML = (undividedGPA / totalWeight / 25).toFixed(2).toString() + "/4.0, " + twelveCounter.toString() + "/12";
         })
 
         // Default add three rows
@@ -81,6 +90,32 @@ window.onload = function() {
         insertRow(document.getElementById("TotalGpaGrid"), 3, "inputGrid", ["courseName", "weighting", "mark"]);
         insertRow(document.getElementById("TotalGpaGrid"), 3, "inputGrid", ["courseName", "weighting", "mark"]);
     } catch (e) {
-        console.log("This page is not CalculateGPA - skipped eventlisteners")
+        console.log("This page is not CalculateGPA - skipped eventListeners")
+    }
+
+
+
+
+
+    try {
+        document.getElementById("addItemButton").addEventListener("click", e=> {
+            document.getElementById("insertCourseGPAPopup").style.display = "grid";
+        })
+    }
+    catch (e) {
+        console.log("This page is not CourseGPA - skipped eventListeners")
+    }
+
+
+
+    try {
+        let xbuttons = document.getElementsByClassName("popUpCloseButton");
+        for (let i = 0; i < xbuttons.length; i ++) {
+            xbuttons.item(i).addEventListener("click", e => {
+                document.getElementById(e.target.parentNode.id).style.display = "none";
+            })
+        }
+    } catch (e) {
+        console.log("No popups here");
     }
 }

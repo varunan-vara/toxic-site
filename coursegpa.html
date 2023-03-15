@@ -9,8 +9,53 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet"> 
         <title>Mark Calculator</title>
+        <script src="main.js"></script>
     </head>
     <body>
+        <div class="popup" id="insertCourseGPAPopup">
+            <button class="popUpCloseButton">&times;</button>
+            <h2 class="popUpTitle">Insert Marked Item</h2>
+            <p class="popupInstructions">Instructions go here...</p>
+            <form action="" id="addCourseGPAItem">
+                <input type="radio" class="courseItem" id="Quiz" name="Course Item" value="Quiz">
+                <label for="Quiz">Quiz</label><br>
+                <input type="radio" class="courseItem" id="Quiz Multiple" name="Course Item" value="Quiz Multiple">
+                <label for="Quiz Multiple">Quiz (Multiple)</label><br>
+                <input type="radio" class="courseItem" id="Midterm" name="Course Item" value="Midterm">
+                <label for="Midterm">Midterm</label><br>
+                <input type="radio" class="courseItem" id="Assignment" name="Course Item" value="Assignment">
+                <label for="Assignment">Assignment</label><br>
+                <input type="radio" class="courseItem" id="Class Participation" name="Course Item" value="Class Participation">
+                <label for="Class Participation">Class Participation</label><br>
+                <input type="radio" class="courseItem" id="Exam" name="Course Item" value="Exam">
+                <label for="Exam">Exam</label><br>
+                <input type="radio" class="courseItem" id="Other" name="Course Item" value="Other">
+                <label for="Other">Other</label><br>
+            </form>
+        </div>
         <div id="titleSection"><h1>Mark Calculator</h1></div>
+        <div class="bodySection">
+            <p class="instructionP">Instructions...</p>
+            <form action="" id="courseGPAForm">
+                <div class="inputGrid" id="CourseGpaGrid">
+                    <div class="inputGridItem">
+                        <p class="inputGridP inputGridHeader">Assignment Name</p>
+                    </div>
+                    <div class="inputGridItem">
+                        <p class="inputGridP inputGridHeader">Weighting/Credits</p>
+                    </div>
+                    <div class="inputGridItem">
+                        <p class="inputGridP inputGridHeader">Current Mark (%)</p>
+                    </div>
+        
+                </div>
+            </form>
+            <button type="button" id="addItemButton" class="actionButton" >Add Item</button>
+            <button type="button" id="courseGPACalcButton" class="submitButton" >Calculate Course GPA</button>
+            <div class="outputArea" id="totalGPAOutputAra">
+                <p>Total Mark: <span id="outputSpan"></span></p>
+                <p>Total GPA: <span id="outputGPASpan"></span></p>
+            </div>
+        </div>
     </body>
 </html>
